@@ -59,11 +59,9 @@ class Simulation:
         self.N_hat_prev = N_hat
         return R
     
-
     def compute_myu(self):
-        """Generates a spatially extended noise matrix based on small-scale fluctuations."""
         myu_small = np.random.normal(*self.myu_mstd, size=self.myu_size)
-        myu_small = np.abs(myu_small)
+        myu_small = (myu_small > 0).astype(np.float32) * 255.0
 
         scale = np.array((self.Nt, self.Nx, self.Ny)) // np.array(self.myu_size)
         myu = np.kron(myu_small, np.ones(scale))
