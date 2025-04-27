@@ -1232,7 +1232,7 @@ class ImprovedDNN(nn.Module):
         return self.net(x)
 
 
-class NPINN_PRO_MAX_TIMEBgiLOCK_V2(nn.Module):
+class NPINN_PRO_MAX_TIMEBLOCK_V2(nn.Module):
     def __init__(
         self,
         layers,
